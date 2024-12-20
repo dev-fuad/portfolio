@@ -1,0 +1,30 @@
+{
+  "contact-info": {
+    "name": "Fuad Mohammed Firoz",
+    "email": "fuad@live.in",
+    "phone": "(+91) 9950054177",
+    "links": [
+      { "site": "LinkedIn", "url": "https://linkedin.com/in/fuad17" },
+      { "site": "GitHub", "url": "https://github.com/dev-fuad" },
+      { "site": "Personal", "url": "https://dev-fuad.github.io" }
+    ],
+    "role": "Mobile Engineer"
+  },
+  "experience": [
+    { "role": "Mobile Engineer", "company": "Aspire Ft. Pte. Ltd.", "start-date": "23052022", "end-date": null, "current": true },
+    { "role": "Lead Engineer", "company": "Simform Software LLP", "start-date": "01012020", "end-date": "13052022", "current": false },
+    { "role": "Software Engineer", "company": "Simform Software LLP", "start-date": "26082019", "end-date": "31122019", "current": false },
+    { "role": "Software Engineer - React Native", "company": "GTS Infosoft LLP", "start-date": "01012018", "end-date": "23082019", "current": false },
+    { "role": "Software Engineer - iOS", "company": "GTS Infosoft LLP", "start-date": "07032016", "end-date": "31122017", "current": false },
+    { "role": "Software Engineer", "company": "Yantraa Infotech Pvt. Ltd.", "start-date": "2015", "end-date": "2016", "current": false },
+    { "role": "Software Engineer", "company": "Ashapura Infocom Pvt. Ltd.", "start-date": "2014", "end-date": "2015", "current": false },
+    { "role": "Intern", "company": "Ashapura Infocom Pvt. Ltd.", "start-date": null, "end-date": null, "current": false }
+  ],
+  "education": [
+    { "course": "B.tech. (Computer Science)", "start-date": "2010", "end-date": "2014", "institute": "Jodhpur Institute of Engineering & Technology" }
+  ],
+  "skills": ["React Native", "JavaScript", "TypeScript", "Redux", "Redux-Saga", "Unit Testing", "E2E Testing", "GIT", "CI/CD", "Agile Development"],
+  "accomplishments": [
+    { "award": "", "date": "", "place": "" }
+  ]
+}
