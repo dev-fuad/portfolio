@@ -10,5 +10,7 @@ interface TextProps extends RNTextProps {
 }
 
 export default function Text({ className, ...props }: TextProps) {
-  return <RNText {...props} {...getStyleProps(className, props.style)} />
+  const { style, ...styleRelatedProps } = getStyleProps(className, props.style);
+  const styles = [textStyle.body, style];
+  return <RNText {...props} style={styles} {...styleRelatedProps} />;
 }

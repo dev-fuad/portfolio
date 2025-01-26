@@ -1,61 +1,78 @@
-import { ImageStyle, StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, Platform, StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
-import { textStyle } from "./textStyles";
+import { BORDER_RADIUS_REGEX, BORDER_REGEX, getBorder } from "./border";
+import { COLOR_REGEX, getColor } from "./colors";
+import { FLEX_REGEX, getFlexStyles } from "./flex";
+import { DIMENSION_REGEX, GAPS_REGEX, getDimension, getGap, getSpacing, SPACING_REGEX } from "./spacing";
+import { getTextStyles, TEXT_REGEX, textStyle } from "./textStyles";
 
 type AnyStyle = StyleProp<ViewStyle | TextStyle | ImageStyle>;
 
-export const fill: ViewStyle = { flex: 1 };
-export const center: ViewStyle = { alignItems: 'center', justifyContent: 'center' };
-
-export const spacing: { [key: string]: number | string } = {
-  auto: 'auto',
-  xs: 8,
-  sm: 12,
-  md: 16,
-  lg: 20,
-  xl: 24,
-};
-
-const directions: { [key: string]: string } = {
-  a: '',
-  t: 'Top',
-  l: 'Left',
-  r: 'Right',
-  b: 'Bottom',
-  v: 'Vertical',
-  h: 'Horizontal',
-};
-
-const styles: { [key: string]: keyof ViewStyle } = {
-  m: 'margin',
-  p: 'padding',
-};
-
-const regex = {
-  spacing: /^(p|m)(a|t|b|r|l|v|h)-(xs|sm|md|lg|xl|auto)$/gm,
-};
-
 const classes: { [key: string]: AnyStyle } = {
-  fill,
-  center,
+  fill: { flex: 1 },
+  center: { alignItems: 'center', justifyContent: 'center' },
+  row: { flexDirection: 'row' },
+  'space-between': { justifyContent: 'space-between' },
+  bold: { fontWeight: 'bold' },
+  italic: { fontStyle: 'italic' },
+  underline: { textDecorationStyle: 'solid', textDecorationColor: 'white' },
 };
 
-const getClass = (key: string): AnyStyle => {
+const getClass = (classKey: string): AnyStyle => {
+  let [platform, key] = classKey.split(':');
+
+  /**
+   * android:style will apply the style only on android
+   * !android:style will apply the style on all platforms except android
+   */
+  if (platform && key) {
+    let shouldApply = true;
+    if (platform.includes('!')) {
+      shouldApply = false;
+      platform = platform.replace('!', '');
+    }
+    if ((Platform.OS !== platform && shouldApply) || (Platform.OS === platform && !shouldApply)) {
+      return {};
+    }
+  } else {
+    key = classKey;
+  }
+
   if (key in classes) {
     return classes[key];
   }
 
   if (key in textStyle) {
-    return { fontFamily: 'SpaceMono', ...textStyle[key] }
+    return { fontFamily: 'Pathway', ...textStyle[key] }
   }
 
-  if (key.length > 4 && regex.spacing.test(key)) {
-    const style = key.at(0)!;
-    const direction = key.at(1)!;
-    const value = key.substring(3)!;
-
-    const styleKey = `${styles[style]}${directions[direction]}`
-    return { [styleKey]: spacing[value] };
+  let keyPattern = key.match(DIMENSION_REGEX);
+  if (keyPattern) {
+    return getDimension(keyPattern.slice(1));
+  }
+  keyPattern = key.match(SPACING_REGEX);
+  if (keyPattern) {
+    return getSpacing(keyPattern.slice(1));
+  }
+  keyPattern = key.match(GAPS_REGEX);
+  if (keyPattern) {
+    return getGap(keyPattern.slice(1));
+  }
+  keyPattern = key.match(BORDER_REGEX) || key.match(BORDER_RADIUS_REGEX);
+  if (keyPattern) {
+    return getBorder(keyPattern.slice(1));
+  }
+  keyPattern = key.match(COLOR_REGEX);
+  if (keyPattern) {
+    return getColor(keyPattern.slice(1));
+  }
+  keyPattern = key.match(TEXT_REGEX);
+  if (keyPattern) {
+    return getTextStyles(keyPattern.slice(1));
+  }
+  keyPattern = key.match(FLEX_REGEX);
+  if (keyPattern) {
+    return getFlexStyles(keyPattern.slice(1));
   }
 
   return {};
@@ -64,7 +81,7 @@ const getClass = (key: string): AnyStyle => {
 const getClasses = (classNames?: string) => {
   if (classNames && typeof classNames === 'string') {
     const classes = classNames.split(' ');
-    return classes.map((className) => getClass(className))
+    return classes.map((className) => getClass(className));
   }
 };
 

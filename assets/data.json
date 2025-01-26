@@ -8,7 +8,8 @@
       { "site": "GitHub", "url": "https://github.com/dev-fuad" },
       { "site": "Personal", "url": "https://dev-fuad.github.io" }
     ],
-    "role": "Mobile Engineer"
+    "role": "Mobile Engineer",
+    "about": "I am a Mobile Engineer with 10+ years of experience in building mobile applications using React Native. I have worked with various clients across the globe and have experience in leading a team of developers. I am passionate about building mobile applications that are user-friendly and performant. I am always eager to learn new technologies and improve my skills."
   },
   "experience": [
     { "role": "Mobile Engineer", "company": "Aspire Ft. Pte. Ltd.", "start-date": "23052022", "end-date": null, "current": true },
@@ -16,15 +17,17 @@
     { "role": "Software Engineer", "company": "Simform Software LLP", "start-date": "26082019", "end-date": "31122019", "current": false },
     { "role": "Software Engineer - React Native", "company": "GTS Infosoft LLP", "start-date": "01012018", "end-date": "23082019", "current": false },
     { "role": "Software Engineer - iOS", "company": "GTS Infosoft LLP", "start-date": "07032016", "end-date": "31122017", "current": false },
-    { "role": "Software Engineer", "company": "Yantraa Infotech Pvt. Ltd.", "start-date": "2015", "end-date": "2016", "current": false },
-    { "role": "Software Engineer", "company": "Ashapura Infocom Pvt. Ltd.", "start-date": "2014", "end-date": "2015", "current": false },
-    { "role": "Intern", "company": "Ashapura Infocom Pvt. Ltd.", "start-date": null, "end-date": null, "current": false }
+    { "role": "Software Engineer", "company": "Yantraa Infotech Pvt. Ltd.", "start-date": "01052015", "end-date": "01032016", "current": false },
+    { "role": "Software Engineer", "company": "Ashapura Infocom Pvt. Ltd.", "start-date": "01082014", "end-date": "31032015", "current": false },
+    { "role": "Intern", "company": "Transit System Pvt. Ltd.", "start-date": "2013", "end-date": "2013", "current": false }
   ],
   "education": [
     { "course": "B.tech. (Computer Science)", "start-date": "2010", "end-date": "2014", "institute": "Jodhpur Institute of Engineering & Technology" }
   ],
   "skills": ["React Native", "JavaScript", "TypeScript", "Redux", "Redux-Saga", "Unit Testing", "E2E Testing", "GIT", "CI/CD", "Agile Development"],
   "accomplishments": [
-    { "award": "", "date": "", "place": "" }
+    { "award": "Programmer of the Year", "date": "2021", "place": "Simform Software LLP" },
+    { "award": "Best Mentor Q1", "date": "2020", "place": "Simform Software LLP" },
+    { "award": "Employee of the Year", "date": "2017", "place": "GTS Infotech LLP" }
   ]
 }

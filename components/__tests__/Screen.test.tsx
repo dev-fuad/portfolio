@@ -1,7 +1,7 @@
 
 import { render } from '@testing-library/react-native';
 
-import { colors } from '@/theme/colors';
+import { pallete } from '@/theme/colors';
 
 import Screen from '../Screen';
 
@@ -18,7 +18,7 @@ describe('Screen component', () => {
     expect(screen.root.props.style).toEqual(expect.arrayContaining([
       expect.objectContaining({
         flex: 1,
-        backgroundColor: colors.light.background,
+        backgroundColor: pallete.white,
       }),
     ]));
   });
@@ -30,7 +30,7 @@ describe('Screen component', () => {
     expect(screen.root.props.style).toEqual(expect.arrayContaining([
       expect.objectContaining({
         flex: 1,
-        backgroundColor: colors.light.background,
+        backgroundColor: pallete.white,
       }),
       expect.objectContaining({
         padding: 10,

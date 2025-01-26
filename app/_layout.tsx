@@ -11,7 +11,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Pathway: require('../assets/fonts/PathwayExtreme-VariableFont.ttf'),
+    Nunito: require('../assets/fonts/NunitoSans.ttf'),
   });
 
   useEffect(() => {
