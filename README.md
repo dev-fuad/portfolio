@@ -2,6 +2,9 @@
 
 I am Fuad.
 
+![Web](./screenshots/Portfolio%20(Home%20-%2029%20Jan).png)
+![Mobile](./screenshots/Portfolio-Mobile%20(Home%20-%2029%20Jan).jpg)
+
 ## Design credit
 
 1. https://dribbble.com/shots/21766554-Portfolio-Website-V1 by [Rifayet Uday](https://dribbble.com/abc)

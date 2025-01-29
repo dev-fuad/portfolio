@@ -58,6 +58,9 @@ export const getTextStyles = (matchgroups: string[]) => {
     return { fontFamily: FontFamily[matchgroups[1] as keyof typeof FontFamily] ?? FontFamily.Nunito };
   }
   if (attribute === 'size') {
+    if (!isNaN(Number(matchgroups[1]))) {
+      return { fontSize: Number(matchgroups[1]) as TextStyle['fontSize'] };
+    }
     return { fontSize: FontSize[matchgroups[1] as keyof typeof FontSize] ?? FontSize.md };
   }
   if (attribute === 'weight') {

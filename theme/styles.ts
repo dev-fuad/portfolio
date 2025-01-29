@@ -1,8 +1,9 @@
-import { ImageStyle, Platform, StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { BORDER_RADIUS_REGEX, BORDER_REGEX, getBorder } from "./border";
 import { COLOR_REGEX, getColor } from "./colors";
 import { FLEX_REGEX, getFlexStyles } from "./flex";
+import { isPlatform } from "./responsive";
 import { DIMENSION_REGEX, GAPS_REGEX, getDimension, getGap, getSpacing, SPACING_REGEX } from "./spacing";
 import { getTextStyles, TEXT_REGEX, textStyle } from "./textStyles";
 
@@ -16,6 +17,7 @@ const classes: { [key: string]: AnyStyle } = {
   bold: { fontWeight: 'bold' },
   italic: { fontStyle: 'italic' },
   underline: { textDecorationStyle: 'solid', textDecorationColor: 'white' },
+  hide: { display: 'none' },
 };
 
 const getClass = (classKey: string): AnyStyle => {
@@ -31,7 +33,7 @@ const getClass = (classKey: string): AnyStyle => {
       shouldApply = false;
       platform = platform.replace('!', '');
     }
-    if ((Platform.OS !== platform && shouldApply) || (Platform.OS === platform && !shouldApply)) {
+    if ((!isPlatform(platform as any) && shouldApply) || (isPlatform(platform as any) && !shouldApply)) {
       return {};
     }
   } else {
@@ -81,7 +83,11 @@ const getClass = (classKey: string): AnyStyle => {
 const getClasses = (classNames?: string) => {
   if (classNames && typeof classNames === 'string') {
     const classes = classNames.split(' ');
-    return classes.map((className) => getClass(className));
+    return classes.map((className) => {
+      const _class = getClass(className);
+      // console.log('class', className, _class);
+      return _class;
+    });
   }
 };
 

@@ -1,4 +1,4 @@
-import { ViewStyle } from "react-native";
+import { ViewStyle, Dimensions } from "react-native";
 
 /**
  * Use Spacing and Gaps in your styles
@@ -24,7 +24,7 @@ import { ViewStyle } from "react-native";
  */
 
 export const DIMENSION_REGEX = /^(width|height|minWidth|minHeight|maxWidth|maxHeight)-(.+)$/;
-export const SPACING_REGEX = /^(p|m)(a|t|b|r|l|v|h)-(xs|sm|md|lg|xl|auto)$/;
+export const SPACING_REGEX = /^(p|m)(a|t|b|r|l|v|h)-(xs|sm|md|lg|xl|auto|.+)$/;
 export const GAPS_REGEX = /^(gap|gap-x|gap-y)-(xs|sm|md|lg|xl)$/;
 
 export const spacing: { [key: string]: number | string } = {
@@ -60,7 +60,15 @@ export const getDimension = (matchGroups: string[]) => {
 
   let valueAmount = spacing[value] ?? value;
   if (!styleKey || !valueAmount) return {};
-  if (!value.includes('%') && !isNaN(parseInt(value))) {
+  if (value.includes('vh')) {
+    const { height } = Dimensions.get('window');
+    const vh = parseInt(value.replace('vh', ''));
+    valueAmount = `${(vh * height) / 100}`;
+  } else if (value.includes('vw')) {
+    const { width } = Dimensions.get('window');
+    const vw = parseInt(value.replace('vh', ''));
+    valueAmount = `${(vw * width) / 100}`;
+  } else if (!value.includes('%') && !isNaN(parseInt(value))) {
     valueAmount = parseInt(value);
   }
   return { [styleKey]: valueAmount };
@@ -75,8 +83,11 @@ export const getSpacing = (matchGroups: string[]) => {
   if (styleDirection) {
     styleKey += styleDirection;
   }
-  const valueAmount = spacing[value];
-  if (!valueAmount) return {};
+  const valueAmount = spacing[value] ?? Number(value);
+  if (
+    !valueAmount
+    || (typeof valueAmount === 'number' && isNaN(valueAmount))
+  ) return {};
   return { [styleKey]: valueAmount };
 };
 

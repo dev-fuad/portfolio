@@ -1,4 +1,12 @@
-export const FLEX_REGEX = /^(flex|direction|wrap|shrink|grow|align|justify|overflow)-(.+)$/;
+export const FLEX_REGEX = /^(flex|direction|wrap|shrink|grow|align|justify|overflow|aspect-ratio)-(.+)$/;
+
+const Alignment = {
+  center: 'center',
+  start: 'flex-start',
+  end: 'flex-end',
+};
+
+type AlignmentKey = keyof typeof Alignment;
 
 export const getFlexStyles = (matchGroups: string[]) => {
   const [style, value] = matchGroups;
@@ -8,11 +16,11 @@ export const getFlexStyles = (matchGroups: string[]) => {
   }
 
   if (style === 'align') {
-    return { alignItems: value as 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'baseline' };
+    return { alignItems: (Alignment[value as AlignmentKey] ?? value) as 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'baseline' };
   }
 
   if (style === 'justify') {
-    return { justifyContent: value as 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' };
+    return { justifyContent: (Alignment[value as AlignmentKey] ?? value) as 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' };
   }
 
   if (style === 'direction') {
@@ -33,6 +41,10 @@ export const getFlexStyles = (matchGroups: string[]) => {
 
   if (style === 'overflow') {
     return { overflow: value as 'visible' | 'hidden' | undefined };
+  }
+
+  if (style === 'aspect-ratio') {
+    return { aspectRatio: parseFloat(value) ?? undefined };
   }
 
   return {};
