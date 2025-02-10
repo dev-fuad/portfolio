@@ -1,4 +1,4 @@
-export const FLEX_REGEX = /^(flex|direction|wrap|shrink|grow|align|justify|overflow|aspect-ratio)-(.+)$/;
+export const FLEX_REGEX = /^(flex|direction|wrap|shrink|grow|align|justify)-(.+)$/;
 
 const Alignment = {
   center: 'center',
@@ -37,14 +37,6 @@ export const getFlexStyles = (matchGroups: string[]) => {
 
   if (style === 'grow') {
     return { flexGrow: parseInt(value) };
-  }
-
-  if (style === 'overflow') {
-    return { overflow: value as 'visible' | 'hidden' | undefined };
-  }
-
-  if (style === 'aspect-ratio') {
-    return { aspectRatio: parseFloat(value) ?? undefined };
   }
 
   return {};

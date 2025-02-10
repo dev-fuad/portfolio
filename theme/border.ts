@@ -39,6 +39,7 @@ export const getBorder = (matchGroups: string[]) => {
 
       return {
         [`border${direction1}${direction2}Radius`]: value,
+        overflow: 'hidden',
       };
     }
     return {};

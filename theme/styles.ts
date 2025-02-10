@@ -2,6 +2,7 @@ import { ImageStyle, StyleProp, StyleSheet, TextStyle, ViewStyle } from "react-n
 
 import { BORDER_RADIUS_REGEX, BORDER_REGEX, getBorder } from "./border";
 import { COLOR_REGEX, getColor } from "./colors";
+import { DISPLAY_REGEX, getDisplayStyles } from "./display";
 import { FLEX_REGEX, getFlexStyles } from "./flex";
 import { isPlatform } from "./responsive";
 import { DIMENSION_REGEX, GAPS_REGEX, getDimension, getGap, getSpacing, SPACING_REGEX } from "./spacing";
@@ -11,6 +12,7 @@ type AnyStyle = StyleProp<ViewStyle | TextStyle | ImageStyle>;
 
 const classes: { [key: string]: AnyStyle } = {
   fill: { flex: 1 },
+  'absolute-fill': { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
   center: { alignItems: 'center', justifyContent: 'center' },
   row: { flexDirection: 'row' },
   'space-between': { justifyContent: 'space-between' },
@@ -75,6 +77,10 @@ const getClass = (classKey: string): AnyStyle => {
   keyPattern = key.match(FLEX_REGEX);
   if (keyPattern) {
     return getFlexStyles(keyPattern.slice(1));
+  }
+  keyPattern = key.match(DISPLAY_REGEX);
+  if (keyPattern) {
+    return getDisplayStyles(keyPattern.slice(1));
   }
 
   return {};

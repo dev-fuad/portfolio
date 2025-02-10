@@ -1,10 +1,14 @@
 import Portfolio from "@/assets/data.json";
-import MyPic from "@/assets/images/Me cropped.png";
+import Carousel from "@/components/Carousel";
 import Image from "@/components/Image";
+import ActionButton from "@/components/Pressable";
 import Screen from "@/components/Screen";
 import TabbedCard from "@/components/TabbedCard";
 import Text from "@/components/Text";
 import View from "@/components/View";
+
+import Experience from "./home/components/experience";
+import Projects from "./home/components/projects";
 
 export default function Index() {
   return (
@@ -15,7 +19,7 @@ export default function Index() {
           <View className="align-end mt-sm">
             <View className="width-80% aspect-ratio-1 center rad-aa-150 bt-3-white br-3-white">
               <View className="height-97% width-97% center rad-aa-150 bb-3-white bt-3-white">
-                <Image source={MyPic} className="height-97% width-97% rad-aa-115" />
+                <Image asset="MyPic" className="height-97% width-97% rad-aa-115" />
               </View>
             </View>
           </View>
@@ -40,26 +44,28 @@ export default function Index() {
 
           <View className="fill gap-lg">
             <View className="fill web:row wrap-wrap gap-lg">
-              <View className="web:width-360 !web:width-100% !web:aspect-ratio-1.6 bg-color-primary rad-aa-lg" />
+              <ActionButton light className="web:width-360 !web:width-100% !web:aspect-ratio-1.6 bg-color-primary rad-aa-lg overflow-hidden">
+                <Carousel />
+              </ActionButton>
               <View className="width-120 rad-aa-lg overflow-hidden !web:hide">
-                <View className="fill bg-color-secondary" />
-                <View className="fill bg-color-primary" />
+                <Experience />
+                <Projects />
               </View>
             </View>
 
             <View className="fill row gap-lg web:hide">
               <View className="width-120 rad-aa-lg overflow-hidden">
-                <View className="fill bg-color-secondary" />
-                <View className="fill bg-color-primary" />
+                <Experience />
+                <Projects />
               </View>
-              <View className="fill height-70vw bg-color-primary rad-aa-lg" />
+              <ActionButton light className="fill height-70vw bg-color-gray rad-aa-lg" />
             </View>
 
             <View className="row gap-lg height-135 align-stretch">
-              <View className="width-32% bg-color-gray rad-aa-lg !web:hide" />
+              <ActionButton light className="width-32% bg-color-gray rad-aa-lg !web:hide" />
               <View className="web:width-60% !web:width-100% !web:height-120 row bg-color-black rad-aa-lg">
                 <View className="flex-4" />
-                <View className="flex-6 bg-color-orange rad-aa-lg" />
+                <ActionButton className="flex-6 bg-color-orange rad-aa-lg" />
               </View>
             </View>
           </View>

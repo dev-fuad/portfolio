@@ -1,11 +1,9 @@
 import { View as RNView, ViewProps as RNViewProps } from 'react-native';
 
-import { getStyleProps } from '@/theme/styles';
+import withStyleClass, { StyleClassProps } from './withStyleClass';
 
-export interface ViewProps extends RNViewProps {
-  className?: string;
-}
+export type ViewProps = RNViewProps & StyleClassProps;
 
-export default function View({ className, ...props }: ViewProps) {
-  return <RNView {...props} {...getStyleProps(className, props.style)} />;
-}
+const View = withStyleClass(RNView);
+
+export default View;
