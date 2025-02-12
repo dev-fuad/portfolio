@@ -4,9 +4,7 @@ import Text from "@/components/Text";
 export default function Projects() {
   return (
     <ActionButton light className="fill bg-color-primary center">
-      <Text>
-        <Text className="h2 bold">50+</Text>
-      </Text>
+      <Text className="h2 bold">50+</Text>
       <Text className="small">Projects</Text>
     </ActionButton>
   );

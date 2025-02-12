@@ -9,6 +9,7 @@ import View from "@/components/View";
 
 import Experience from "./home/components/experience";
 import Projects from "./home/components/projects";
+import Skills from "./home/components/skills";
 
 export default function Index() {
   return (
@@ -17,16 +18,27 @@ export default function Index() {
       <View className="pa-md web:direction-row gap-lg">
         <TabbedCard title="About Me" containerClassName="web:width-350">
           <View className="align-end mt-sm">
-            <View className="width-80% aspect-ratio-1 center rad-aa-150 bt-3-white br-3-white">
-              <View className="height-97% width-97% center rad-aa-150 bb-3-white bt-3-white">
-                <Image asset="MyPic" className="height-97% width-97% rad-aa-115" />
-              </View>
+            <View className="width-80% aspect-ratio-1 center rad-aa-150">
+              <View className="absolute-fill top-20% right-20% bottom-20% left-20% rad-aa-150 ba-3-white" />
+              <View className="absolute-fill top-35% right-35% bottom-35% left-35% rad-aa-150 bg-color-pink" />
+              <Image asset="MyPic" className="width-100% height-100% aspect-ratio-1 rad-aa-115" resizeMode="contain" />
             </View>
           </View>
 
-          <Text className="h1">I'm</Text>
+          <Text className="h1 mt--20">I'm</Text>
           <Text className="h1 text-weight-bold">{Portfolio["contact-info"]['first-name']}</Text>
           <Text className="h2 text-weight-bold">{Portfolio["contact-info"]['last-name']}</Text>
+
+          <View className="row align-center gap-sm">
+            <Text className="link text-size-xs">{Portfolio["contact-info"]['email']}</Text>
+            <Image asset="EmailIcon" className="mt-5 width-15 height-15" />
+          </View>
+
+          <View className="position-absolute bottom-100 right-20 height-80 aspect-ratio-1 bt-3-black br-3-black rad-aa-40">
+            <View className="fill center ma-5 rad-aa-35 bg-color-black">
+              <View className="height-lg aspect-ratio-1 rad-aa-35 bg-color-white" />
+            </View>
+          </View>
 
           {/* <Text>
             <Text className="h2">A passionate </Text>
@@ -58,14 +70,23 @@ export default function Index() {
                 <Experience />
                 <Projects />
               </View>
-              <ActionButton light className="fill height-70vw bg-color-gray rad-aa-lg" />
+              <Skills className="fill pa-xs gap-md height-70vw bg-color-gray rad-aa-lg center" />
             </View>
 
             <View className="row gap-lg height-135 align-stretch">
-              <ActionButton light className="width-32% bg-color-gray rad-aa-lg !web:hide" />
+              <Skills className="width-32% bg-color-gray rad-aa-lg !web:hide center gap-xs" />
               <View className="web:width-60% !web:width-100% !web:height-120 row bg-color-black rad-aa-lg">
-                <View className="flex-4" />
-                <ActionButton className="flex-6 bg-color-orange rad-aa-lg" />
+                <View className="flex-4 center">
+                  <Image
+                    asset="AchievementsIcon"
+                    className="width-65% height-65% aspect-ratio-1 rad-aa-lg"
+                    resizeMode="contain"
+                  />
+                </View>
+                <ActionButton className="flex-6 bg-color-orange rad-aa-lg center">
+                  <Text className="h2 text-weight-bold color-black">3</Text>
+                  <Text className="small color-black">Awards</Text>
+                </ActionButton>
               </View>
             </View>
           </View>

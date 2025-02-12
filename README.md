@@ -2,8 +2,8 @@
 
 I am Fuad.
 
-![Web](./screenshots/Portfolio%20(Home%20-%2029%20Jan).png)
-![Mobile](./screenshots/Portfolio-Mobile%20(Home%20-%2029%20Jan).jpg)
+![Web](./screenshots/Portfolio%20(Home%20-%2012%20Feb).png)
+![Mobile](./screenshots/Portfolio-Mobile%20(Home%20-%2012%20Feb).jpg)
 
 ## Design credit
 
@@ -18,3 +18,5 @@ I am Fuad.
 5. Screenshot to Mockups by [MockUPhone](https://mockuphone.com/)
 
 6. Code screenshot by [Carbon](https://carbon.now.sh/)
+
+7. Icons from <a href="https://www.flaticon.com/free-icons/support" title="support icons">Support icons created by Freepik - Flaticon</a>

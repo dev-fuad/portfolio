@@ -6,11 +6,16 @@ import Animated from "react-native-reanimated";
 import withStyleClass, { StyleClassProps } from "./withStyleClass";
 
 const Assets = {
-  MyPic: require("@/assets/images/Me cropped.png"),
+  MyPic: require("@/assets/images/face.png"),
   Paperless: require("@/assets/images/apps/paperless.png"),
   Portfolio: require("@/assets/images/apps/class-styled.png"),
   AireHealth: require("@/assets/images/apps/airehealth.png"),
   Lexicon: require("@/assets/images/apps/Lexicon.png"),
+
+  // Icons
+  AchievementsIcon: require("@/assets/images/achievements.png"),
+  EmailIcon: require("@/assets/images/email.png"),
+  SkillsIcon: require("@/assets/images/skills.png"),
 };
 
 export type ImageProps = RNImageProps & StyleClassProps & {

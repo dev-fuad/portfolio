@@ -29,9 +29,9 @@ export const textStyle: { [key: string]: TextStyle } = {
   link: {
     fontFamily: FontFamily.Nunito,
     fontSize: FontSize.sm,
-    color: pallete.primary,
-    textDecorationColor: pallete.primary,
-    textDecorationStyle: 'solid',
+    color: pallete.white,
+    textDecorationColor: pallete.white,
+    textDecorationStyle: 'dotted',
     textDecorationLine: 'underline',
   },
 } as const;

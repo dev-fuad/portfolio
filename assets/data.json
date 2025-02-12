@@ -25,7 +25,7 @@
   "education": [
     { "course": "B.tech. (Computer Science)", "start-date": "2010", "end-date": "2014", "institute": "Jodhpur Institute of Engineering & Technology" }
   ],
-  "skills": ["React Native", "JavaScript", "TypeScript", "Redux", "Redux-Saga", "Unit Testing", "E2E Testing", "GIT", "CI/CD", "Agile Development"],
+  "skills": ["React Native", "JS", "TS", "Redux", "Redux-Saga", "Unit Testing", "E2E Testing", "GIT", "CI/CD", "Agile Development"],
   "accomplishments": [
     { "award": "Programmer of the Year", "date": "2021", "place": "Simform Software LLP" },
     { "award": "Best Mentor Q1", "date": "2020", "place": "Simform Software LLP" },
