@@ -5,6 +5,8 @@ I am Fuad.
 ![Web](./screenshots/Portfolio%20(Home%20-%2012%20Feb).png)
 ![Mobile](./screenshots/Portfolio-Mobile%20(Home%20-%2012%20Feb).jpg)
 
+[Design](https://www.figma.com/design/C18ovpTef2mIHx5A7chhGY/Codia-AI-Design%3A-Screenshot-to-Editable-Figma-Design-(Community)?node-id=1-2&t=nr9IL6ucEnK5eiEb-0)
+
 ## Design credit
 
 1. https://dribbble.com/shots/21766554-Portfolio-Website-V1 by [Rifayet Uday](https://dribbble.com/abc)
